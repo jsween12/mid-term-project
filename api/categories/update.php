@@ -3,11 +3,11 @@
 
 header('Access-Control-Allow-Origin: *'); 
 header('Content-Type: application/json'); 
-header('Access-Control-Allow-Methods: DELETE'); 
+header('Access-Control-Allow-Methods: PUT'); 
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With'); 
 
 include_once '../../config/Database.php';
-include_once '../../model/Authors.php';
+include_once '../../model/categories.php';
 
 
 //instantiate database 
@@ -16,31 +16,32 @@ $database = new Database();
 //doesn't that connect it? 
 $db = $database->connect(); 
 
-//instantiate author object
+//instantiate category object
 
-$author = new author($db); 
+$category = new category($db); 
 
 //get raw posted data from client
 
 $data = json_decode(file_get_contents("php://input")); 
 
-//assign author object the values we just got above from client
-$author->id = $data->id; 
+
+//assign category object the values we just got above from client
+$category->id = $data->id; 
+$category->category = $data->category; 
 
 
-//now that the object has the info, we can call delete() and it'll send the mySQL to the database with the proper info from our object inserted
-if($author->delete()){
+//execute 
+if($category->update()){
     echo json_encode(
-       // array('message'=> $author->id)
-       $author->id 
-    );
+        array('message'=> 'updated category ('. $category->id . ', ' . $category->category . ')')); 
+    
 } else{
-    echo json_encode(
-        array('message'=> 'No Author Found')
+echo json_encode(
+    array('message'=> 'categoryId Not Found') 
     );
-
 }
 
 
-
 ?>
+
+

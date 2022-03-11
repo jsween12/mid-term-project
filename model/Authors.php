@@ -148,13 +148,19 @@
         //bind data
         $stmt->bindParam(1, $this->id); 
 
-        //execute query
-        if($stmt->execute()){
-            return true;
+        //execute query and see if it executes 
+        if($stmt->execute()==false){
+            printf("Error: %s.\n", $stmt->error); 
+             return false; 
+            
         }
-        //if not print error
-        printf("Error: %s.\n", $stmt->error); 
-        return false; 
+        //now check to see if any data was affected in the database
+        $rowChange = $stmt->rowCount(); 
+        
+        if($rowChange==false){return false; }
+
+        else return true; 
+
     }
 
     }
