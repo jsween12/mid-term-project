@@ -39,7 +39,9 @@ if($category->return_single()){
 }
 
 else {
-    echo json_encode('categoryId Not Found'); die();
+    echo json_encode(
+        array('message'=> 'No Category Found')
+    );
 
 }
 

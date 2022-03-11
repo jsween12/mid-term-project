@@ -7,7 +7,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With'); 
 
 include_once '../../config/Database.php';
-include_once '../../model/Authors.php';
+include_once '../../model/quotes.php';
 
 
 //instantiate database 
@@ -16,24 +16,28 @@ $database = new Database();
 //doesn't that connect it? 
 $db = $database->connect(); 
 
-//instantiate author object
+//instantiate quotes object
 
-$author = new author($db); 
+$quote = new quote($db); 
 
 //get raw posted data from client
 
 $data = json_decode(file_get_contents("php://input")); 
 
-//assign author object the values we just got above from client
-$author->author = $data->author; 
+//assign quote object the values we just got above from client
+
+$quote->quote = $data->quote; 
+$quote->authorID = $data->authorID; 
+$quote->categoryID = $data->categoryID; 
+
 
 //now that the object has the info, we can call create() and it'll send the mySQL to the database with the proper info from our object inserted
 //call the create method 
  
 
-if($author->create()){
+if($quote->create()){
     echo json_encode(
-        array('message'=> 'created author ('. $author->id . ', ' . $author->author . ')')); 
+        array('message'=> 'created quote ('. $quote->id . ', ' . $quote->quote . ', ' . $quote->authorID . ', ' .$quote->categoryID .')')); 
     
 
 } else{

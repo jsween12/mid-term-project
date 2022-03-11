@@ -28,7 +28,7 @@ $data = json_decode(file_get_contents("php://input"));
 $category->category = $data->category; 
 
 //now that the object has the info, we can call create() and it'll send the mySQL to the database with the proper info from our object inserted
-//call the create method and assign the pdo object a variable. 
+//call the create method 
  
 
 if($category->create()){

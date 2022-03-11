@@ -5,7 +5,7 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json'); 
 
 include_once '../../config/Database.php';
-include_once '../../model/Authors.php';
+include_once '../../model/quotes.php';
 
 //instantiate database 
 $database = new Database(); 
@@ -15,26 +15,28 @@ $db = $database->connect();
 
 //instantiate author object
 
-$author = new author($db); 
+$quote = new quote($db); 
 
 //get id and assign it to your author object
 
-$author->id = isset($_GET['id']) ? $_GET['id'] : die();
+$quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 
-//call authors read method to get the author info. Note that if comes back false, then it prints 'authorID not found' below
+//call quote read method to get the author info. Note that if comes back false, then it prints 'quote not found' below
 
-if($author->return_single()){
+if($quote->return_single()){
 
 
-    //create an array and assign the author info to it
-    $author_arr = array(
-        'id' => $author->id, 
-        'author' => $author->author
+    //create an array and assign the quote info to it
+    $quote_arr = array(
+        'id' => $quote->id, 
+        'quote' => $quote->quote, 
+        'authorID'=> $quote->authorID,
+        'categoryID'=> $quote->categoryID
     );
 
     //convert this array to JSON
-    print_r(json_encode($author_arr)); 
+    print_r(json_encode($quote_arr)); 
 
 }
 
@@ -42,6 +44,8 @@ else {
     echo json_encode(
         array('message'=> 'No Quotes Found')
     );
+    
+
 
 }
 

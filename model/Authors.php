@@ -14,7 +14,6 @@
 
         public function __construct($db){
             $this->conn = $db; 
-             
         }
 
 
@@ -118,17 +117,16 @@
         //first check to see if the execute statment works. If not, return false. 
         if($stmt->execute()==false){
             //if not print error
-        printf("Error: %s.\n", $stmt->error); 
-        return false;
+            printf("Error: %s.\n", $stmt->error); 
+            return false;
         }
-       
+        
         // Next check to see if the mySQL update command actually changed anything. 
         $rowChange = $stmt->rowCount(); 
         if($rowChange>0){return true; }
 
         else
         {return false; }
-
         
     }
 
@@ -151,14 +149,13 @@
         //execute query and see if it executes 
         if($stmt->execute()==false){
             printf("Error: %s.\n", $stmt->error); 
-             return false; 
-            
+            return false; 
         }
         //now check to see if any data was affected in the database
         $rowChange = $stmt->rowCount(); 
-        
+        //if nothing was changed, return false
         if($rowChange==false){return false; }
-
+        //otherwise we're good. 
         else return true; 
 
     }
