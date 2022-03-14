@@ -7,7 +7,11 @@
         private $host = "x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
         private $db_name = 'cvjc3r90rtdy4yc5'; 
         private $username = 'qm7c0wjqg3rep2tu'; 
+<<<<<<< HEAD
         private $password = 'wtkltqyyhjgilte5 '; 
+=======
+        private $password = 'wtkltqyyhjgilte5' ; 
+>>>>>>> 3eee931771abc11d53e2d6398b9e54678fcc2d4f
         private $conn; 
 
         // Database connection with pdo
@@ -75,4 +79,7 @@
 
 
     ?>
+<<<<<<< HEAD
     
+=======
+>>>>>>> 3eee931771abc11d53e2d6398b9e54678fcc2d4f
