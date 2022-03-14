@@ -1,10 +1,10 @@
 <?php
     class Database {
         //Database parameters
-        private $host = "localhost";
-        private $db_name = 'quotesdb'; 
-        private $username = 'root'; 
-        private $password; 
+        private $host = "x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+        private $db_name = 'cvjc3r90rtdy4yc5'; 
+        private $username = 'qm7c0wjqg3rep2tu'; 
+        private $password = getenv() ; 
         private $conn; 
 
         // Database connection with pdo
