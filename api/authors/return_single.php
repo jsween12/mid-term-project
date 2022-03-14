@@ -40,7 +40,7 @@ if($author->return_single()){
 
 else {
     echo json_encode(
-        array('message'=> 'No Quotes Found')
+        array('message'=> 'No Author Found')
     );
 
 }

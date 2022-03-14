@@ -176,6 +176,61 @@
 
     }
 
+    public function read_all_author(){
+        //create a query
+        $query = 'SELECT * FROM `quotes` WHERE authorID =?';
+        
+        //prepare statment
+        $stmt = $this->conn->prepare($query); 
+
+        //bind ID to the query (the question mark placeholder)
+        $stmt->bindParam(1, $this->authorID);
+
+        //execute query
+        $stmt->execute();
+
+        //return the data
+        return $stmt; 
+        
+    }
+
+    public function read_all_category(){
+        //create a query
+        $query = 'SELECT * FROM `quotes` WHERE categoryID =?';
+        
+        //prepare statment
+        $stmt = $this->conn->prepare($query); 
+
+        //bind ID to the query (the question mark placeholder)
+        $stmt->bindParam(1, $this->categoryID);
+
+        //execute query
+        $stmt->execute();
+
+        //return the data
+        return $stmt; 
+        
+    }
+
+    public function read_author_category(){
+        //create a query
+        $query = 'SELECT * FROM `quotes` WHERE authorID=? AND categoryID =?';
+        
+        //prepare statment
+        $stmt = $this->conn->prepare($query); 
+
+        //bind ID to the query (the question mark placeholder)
+        $stmt->bindParam(1, $this->authorID);
+        $stmt->bindParam(2, $this->categoryID);
+
+        //execute query
+        $stmt->execute();
+
+        //return the data
+        return $stmt; 
+        
+    }
+
     }
 
     ?>
