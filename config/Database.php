@@ -4,7 +4,7 @@
         private $host = "x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
         private $db_name = 'cvjc3r90rtdy4yc5'; 
         private $username = 'qm7c0wjqg3rep2tu'; 
-        private $password = getenv() ; 
+        private $password = getenv("pass") ; 
         private $conn; 
 
         // Database connection with pdo
