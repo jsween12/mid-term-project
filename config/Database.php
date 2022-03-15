@@ -43,8 +43,8 @@
             //it looks like this uses the url to assign all the following variables 
             $dbparts = parse_url($url); 
 
-            $hostname = $dbparts['host'];
-            $username = $dbparts['user'];
+            $hostname = getenv('host');
+            $username = getenv('user');
             $password = getenv('pass'); 
             $database = getenv('database'); 
 
