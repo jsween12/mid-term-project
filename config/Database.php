@@ -45,7 +45,7 @@
 
             $hostname = $dbparts['host'];
             $username = $dbparts['user'];
-            $password = $dbparts['pass']; 
+            $password = getenv('pass'); 
             $database = ltrim($dbparts['path'], '/'); 
 
             try{
@@ -60,17 +60,7 @@
                 echo "Connection failed: " . $e->getMessage(); 
             }
 
-
-
-
-
-
-
         }
-
-
-
-
 
     }
 
