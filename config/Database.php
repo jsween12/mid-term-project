@@ -50,10 +50,9 @@
 
             try{
 
-            $conn = new PDO("mysql:host=" . $hostname . "; dbname=" .
-             $database.", " . $username. ', ' . $password); 
+            $this->conn = new PDO("mysql:host=" . $hostname . "; dbname=" . $database.", " . $username. ', ' . $password); 
 
-            $conn->setAttribute(PDO::ATR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::ATR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connection Successful";
             }
             catch(PDOException $e)
