@@ -50,7 +50,8 @@
 
             try{
 
-            $conn = new PDO("mysql:host=" . $hostname . "; dbname=" . $database.", " . $username. ', ' . $password); 
+            $conn = new PDO("mysql:host=" . $hostname . "; dbname=" .
+             $database.", " . $username. ', ' . $password); 
 
             $conn->setAttribute(PDO::ATR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connection Successful";
@@ -79,7 +80,4 @@
 
 
     ?>
-<<<<<<< HEAD
     
-=======
->>>>>>> 3eee931771abc11d53e2d6398b9e54678fcc2d4f
