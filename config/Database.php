@@ -35,7 +35,8 @@
     //lets try this again for Heroku...
 
     class Database{
-        private conn; 
+        private $conn; 
+
 
         public function connect(){
             //get the url from config vars on Heroku
