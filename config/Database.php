@@ -12,13 +12,13 @@ private $dbparts;
 function __construct(){
   // This constructor runs when the object is instantiated and allows for dynamic variable creation
   //(lesson learned. Thank you discord peeps and Dave)
-    //$this->url = getenv('JAWSDB_URL');
-    //$this->dbparts = parse_url($this->url);
+    $this->url = getenv('JAWSDB_URL');
+    $this->dbparts = parse_url($this->url);
 
-    $this->hostname = getenv('host');
-    $this->username = getenv('user');
+    $this->hostname = $this->dbparts['host'];
+    $this->username = $this->dbparts['user'];
     $this->password = getenv('pass');
-    $this->database = getenv('database');
+    $this->database = ltrim($this->dbparts['path'], '/');
 }
 
 public function connect() {
@@ -26,8 +26,8 @@ public function connect() {
     // Create your new PDO connection 
     try {
     $this->conn = new PDO('mysql: host=' . $this->hostname . ';dbname=' . $this->database, $this->username, $this->password);
-    // set the PDO error mode to exception
     
+    // set the PDO error mode to exception
     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo( "Connected successfully");
     }
