@@ -22,7 +22,7 @@
 
             try{
 
-            $this->conn = new PDO("mysql:host=" . $this->hostname . "; dbname=" . $this->database.", " . $this->username. ', ' . $this->password); 
+            $this->conn = new PDO("mysql:host=$this->hostname;dbname=$this->database", $this->username, $this->password);
 
             $this->conn->setAttribute(PDO::ATR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connection Successful";
