@@ -1,47 +1,30 @@
-
 <?php
+class Database {
+  // Define the class properties here
+private conn; 
+  public function connect() {
+    // if creating a Heroku connection, this is straight from the dev center link: 
+    $url = getenv('JAWSDB_URL');
+    $dbparts = parse_url($url);
 
-    class Database{
-        private $conn; 
-        private $hostname; 
-        private $username; 
-        private $password; 
-        private $database; 
+    $hostname = $dbparts['host'];
+    $username = $dbparts['user'];
+    $password = $dbparts['pass'];
+    $database = ltrim($dbparts['path'],'/');
 
-        private $url; 
-        private $dbparts; 
-
-
-        public function connect(){
-            //get the url from config vars on Heroku
-            $this->url = getenv('JAWSDB_URL');
-            //it looks like this uses the url to assign all the following variables 
-            
-            $this->dbparts = parse_url($this->url); 
-            $this->hostname = $this->dbparts['host'];
-            $this->username = $this->dbparts['user'];
-            $this->password = getenv('pass'); 
-            $this->database = ltrim($this->dbparts['path'], '/'); 
-
-            try{
-
-            $this->conn = new PDO("mysql:host=" . $this->hostname . "; dbname=" . $this->database.", " . $this->username. ', ' . $this->password); 
-
-            $this->conn->setAttribute(PDO::ATR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connection Successful";
-            }
-            catch(PDOException $e)
-            {
-                echo "Connection failed: " . $e->getMessage(); 
-            }
-
-        }
-
+    // Create your new PDO connection 
+    try {
+      $this->conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+      // set the PDO error mode to exception
+      $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      echo "Connected successfully";
     }
+    catch(PDOException $e)
+    {
+      echo "Connection failed: " . $e->getMessage();
+    }
+  }
+}
 
 
-
-
-
-    ?>
-    
+?>
