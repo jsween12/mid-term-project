@@ -12,13 +12,13 @@ private $dbparts;
 public function __contstruct(){
   // This constructor runs when the object is instantiated and allows for dynamic variable creation
   //(lesson learned. Thank you discord peeps and Dave)
-    $this->url = getenv('JAWSDB_URL');
-    $this->dbparts = parse_url($this->url);
+    //$this->url = getenv('JAWSDB_URL');
+    //$this->dbparts = parse_url($this->url);
 
-    $this->hostname = $dbparts['host'];
-    $this->username = $dbparts['user'];
+    $this->hostname = getenv('host');
+    $this->username = getenv('user');
     $this->password = getenv('pass');
-    $this->database = ltrim($dbparts['path'],'/');
+    $this->database = getenv('database');
 
 }
 
