@@ -23,7 +23,7 @@ private $database;
       // set the PDO error mode to exception
       $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       echo "Connected successfully";
-      return $conn; 
+      return $this->conn; 
     }
     catch(PDOException $e)
     {
