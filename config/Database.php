@@ -8,17 +8,20 @@
         private $password; 
         private $database; 
 
+        private $url; 
+        private $dbparts; 
+
 
         public function connect(){
             //get the url from config vars on Heroku
-            $url = getenv('JAWSDB_URL');
+            $this->url = getenv('JAWSDB_URL');
             //it looks like this uses the url to assign all the following variables 
-            $dbparts = parse_url($url); 
+            $this->dbparts = parse_url($url); 
 
-            $this->hostname = $dbparts['host'];
-            $this->username = $dbparts['user'];
+            $this->hostname = $this->dbparts['host'];
+            $this->username = $this->dbparts['user'];
             $this->password = getenv('pass'); 
-            $this->database = ltrim($dbparts['path'], '/'); 
+            $this->database = ltrim($this->dbparts['path'], '/'); 
 
             try{
 
