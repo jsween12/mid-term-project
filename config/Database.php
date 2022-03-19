@@ -19,26 +19,26 @@ private $dbparts;
     $this->username = getenv('user');
     $this->password = getenv('pass');
     $this->database = getenv('database');
-
 }
 
-  public function connect() {
+public function connect() {
 
     // Create your new PDO connection 
     try {
-      $this->conn = new PDO('mysql:host=' . $this->hostname . ';' . dbname=$this->database, $this->username, $this->password);
-      // set the PDO error mode to exception
-      $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo( "Connected successfully");
+    $this->conn = new PDO('mysql:host=' . $this->hostname . ';' . 'dbname=' . $this->database, $this->username, $this->password);
+    // set the PDO error mode to exception
+    $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo( "Connected successfully");
     }
     catch(PDOException $e)
     {
-      echo "Connection failed: " . $e->getMessage();
+    echo "Connection failed: " . $e->getMessage();
     }
-    
+
     return $this->conn; 
 
-  }
+}
+
 }
 
 
