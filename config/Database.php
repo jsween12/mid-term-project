@@ -6,16 +6,26 @@ private $hostname;
 private $username; 
 private $password; 
 private $database; 
+private $url;
+private $dbparts; 
 
-  public function connect() {
-    // if creating a Heroku connection, this is straight from the dev center link: 
-    $url = getenv('JAWSDB_URL');
-    $dbparts = parse_url($url);
+public function __contstruct(){
+  // This constructor runs when the object is instantiated and allows for dynamic variable creation
+  //(lesson learned. Thank you discord peeps and Dave)
+    $this->url = getenv('JAWSDB_URL');
+    $this->dbparts = parse_url($this->url);
 
     $this->hostname = $dbparts['host'];
     $this->username = $dbparts['user'];
     $this->password = getenv('pass');
     $this->database = ltrim($dbparts['path'],'/');
+
+}
+
+
+
+
+  public function connect() {
 
     // Create your new PDO connection 
     try {
