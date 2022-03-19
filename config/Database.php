@@ -16,8 +16,8 @@
             //get the url from config vars on Heroku
             $this->url = getenv('JAWSDB_URL');
             //it looks like this uses the url to assign all the following variables 
-            $this->dbparts = parse_url($url); 
-
+            
+            $this->dbparts = parse_url($this->url); 
             $this->hostname = $this->dbparts['host'];
             $this->username = $this->dbparts['user'];
             $this->password = getenv('pass'); 
