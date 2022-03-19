@@ -14,7 +14,7 @@ private $database;
 
     $this->hostname = $dbparts['host'];
     $this->username = $dbparts['user'];
-    $this->password = $dbparts['pass'];
+    $this->password = getenv('pass');
     $this->database = ltrim($dbparts['path'],'/');
 
     // Create your new PDO connection 
