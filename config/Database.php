@@ -1,7 +1,7 @@
 <?php
 class Database {
   // Define the class properties here
-private conn; 
+private $conn; 
   public function connect() {
     // if creating a Heroku connection, this is straight from the dev center link: 
     $url = getenv('JAWSDB_URL');
