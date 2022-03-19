@@ -9,7 +9,7 @@ private $database;
 private $url;
 private $dbparts; 
 
- function __contstruct(){
+function __construct(){
   // This constructor runs when the object is instantiated and allows for dynamic variable creation
   //(lesson learned. Thank you discord peeps and Dave)
     //$this->url = getenv('JAWSDB_URL');
