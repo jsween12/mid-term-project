@@ -12,7 +12,9 @@ switch($method){
     case "GET":
         //note: This one must come first. If you put it last, the third case fires because the 
         //authorID is set. 
-        if(isset($_GET['authorId']) and isset($_GET['categoryId'])) 
+        $bool1 = isset($_GET['authorId']);
+        $bool2 = isset($_GET['categoryId']); 
+        if( $bool1 and $bool2) 
         {include 'read_author_category.php'; 
         break;}
 
