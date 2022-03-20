@@ -18,14 +18,9 @@ $db = $database->connect();
 $quote = new quote($db); 
 
 //get the authorID from the client and put it into your object so the method can use it. 
-//$quote->categoryID = isset($_GET['categoryID']) ? $_GET['categoryID'] : die();
 
-//if the client sent authorID and categoryID via GET, then put those values in the object's params. 
-if(isset($_GET['authorId']) and isset($_GET['categoryId'] )){
-    $quote->authorID = $_GET['authorId']; 
-    $quote->categoryID = $_GET['categoryId']; 
-}
-else {die();} 
+$quote->authorID = $_GET['authorId']; 
+$quote->categoryID = $_GET['categoryId'];
 
 //call quote read method
 
@@ -39,7 +34,6 @@ $num = $result->rowCount();
 
 if($num >0){
     //post array
-    $quotes_arr = array(); 
     $quotes_arr = array(); 
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
