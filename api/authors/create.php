@@ -32,9 +32,14 @@ $author->author = $data->author;
  
 
 if($author->create()){
-    echo json_encode(
-        array('message'=> 'created author ('. $author->id . ', ' . $author->author . ')')); 
-    
+    //create an array and assign the author info to it
+    $author_arr = array(
+        'id' => $author->id, 
+        'author' => $author->author
+    );
+
+    //convert this array to JSON
+    print_r(json_encode($author_arr)); 
 
 } else{
 
