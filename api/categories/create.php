@@ -32,8 +32,14 @@ $category->category = $data->category;
  
 
 if($category->create()){
-    echo json_encode(
-        array('message'=> 'created category ('. $category->id . ', ' . $category->category . ')')); 
+     //create an array and assign the cateogry info to it
+    $category_arr = array(
+        'id' => $category->id, 
+        'category' => $category->category
+    );
+
+    //convert this array to JSON
+    print_r(json_encode($category_arr)); 
     
 
 } else{
