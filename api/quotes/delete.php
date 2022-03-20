@@ -44,7 +44,7 @@ if($quote->delete()){
 
 } else{
     echo json_encode(
-        array('message'=> 'No Quote Found')
+        array('message'=> 'No Quotes Found')
     );
 
 }
