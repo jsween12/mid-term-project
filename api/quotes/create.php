@@ -45,6 +45,9 @@ if($quote->create()){
         'category'=> $quote->category
     );
 
+    //convert this array to JSON
+    print_r(json_encode($quote_arr)); 
+
 } else{
 
 echo json_encode(
