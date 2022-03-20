@@ -32,12 +32,6 @@
         ON quotes.authorID = authors.id
         JOIN categories
         ON quotes.categoryID = categories.id';
-
-
-
-
-
-
         
         //prepare statment
         $stmt = $this->conn->prepare($query); 
@@ -52,7 +46,16 @@
 
     public function return_single(){
         //create a query
-        $query = 'SELECT * FROM `quotes` WHERE id =?';
+        //$query = 'SELECT * FROM `quotes` WHERE id =?';
+
+        $query = 'SELECT quotes.id, quotes.quote, authors.author, categories.category  
+        FROM `quotes` 
+        JOIN authors
+        ON quotes.authorID = authors.id
+        JOIN categories
+        ON quotes.categoryID = categories.id
+        WHERE id =?';
+
         
         //prepare statment
         $stmt = $this->conn->prepare($query); 
@@ -76,8 +79,8 @@
         
         $this->id = $row['id']; 
         $this->quote = $row['quote']; 
-        $this->authorID = $row['authorID'];
-        $this->categoryID = $row['categoryID'];
+        $this->author = $row['author'];
+        $this->category= $row['category'];
 
 
         return $stmt; 
