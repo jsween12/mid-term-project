@@ -15,7 +15,7 @@ switch($method){
         else { include 'readAll.php'; }
         break; 
 
-    case 'POST:
+    case 'POST':
         include 'create.php';
         break; 
 
