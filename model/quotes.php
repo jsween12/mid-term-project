@@ -54,7 +54,7 @@
         ON quotes.authorID = authors.id
         JOIN categories
         ON quotes.categoryID = categories.id
-        WHERE id =?';
+        WHERE quotes.id =?';
 
         
         //prepare statment
