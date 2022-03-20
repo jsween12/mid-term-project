@@ -34,8 +34,19 @@ $quote->categoryID = $data->categoryID;
 
 //execute 
 if($quote->update()){
-    echo json_encode(
-        array('message'=> 'updated quote ('. $quote->id . ', ' . $quote->quote . ', ' . $quote->authorID . ', ' .$quote->categoryID . ')'));
+    
+    //create an array and assign the quote info to it
+    $quote_arr = array(
+        'id' => $quote->id, 
+        'quote' => $quote->quote, 
+        'author'=> $quote->authorID,
+        'category'=> $quote->categoryID
+    );
+
+    //convert this array to JSON
+    print_r(json_encode($quote_arr)); 
+    
+    
     
 } else{
 echo json_encode(
