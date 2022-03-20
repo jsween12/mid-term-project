@@ -22,7 +22,22 @@
     //Get all from quotes' table
         public function readAll(){
         //create a query
-        $query = 'SELECT * FROM '. $this->table; 
+        //$query = 'SELECT * FROM '. $this->table; 
+
+        //commented out above line and added this when I realized I had missed this requirement
+        //for the output of readAll() quotes. This is much better. 
+        $query = 'SELECT quotes.id, quotes.quote, authors.author, categories.category  
+        FROM `quotes` 
+        JOIN authors
+        ON quotes.authorID = authors.id
+        JOIN categories
+        ON quotes.categoryID = categories.id';
+
+
+
+
+
+
         
         //prepare statment
         $stmt = $this->conn->prepare($query); 

@@ -38,8 +38,8 @@ if($num >0){
         $quotes_item = array(
             'id' => $id,
             'quote' => $quote,
-            'authorID'=>$authorID,
-            'categoryID'=> $categoryID
+            'author'=>$author,
+            'category'=> $category
 
         ); 
 
