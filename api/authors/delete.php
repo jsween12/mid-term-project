@@ -30,10 +30,13 @@ $author->id = $data->id;
 
 //now that the object has the info, we can call delete() and it'll send the mySQL to the database with the proper info from our object inserted
 if($author->delete()){
-    echo json_encode(
-       // array('message'=> $author->id)
-       $author->id 
+    //create an array and assign the author info to it
+    $author_arr = array(
+        'id' => $author->id, 
     );
+
+    //convert this array to JSON
+    print_r(json_encode($author_arr)); 
 } else{
     echo json_encode(
         array('message'=> 'No Author Found')

@@ -30,10 +30,13 @@ $category->id = $data->id;
 
 //now that the object has the info, we can call delete() and it'll send the mySQL to the database with the proper info from our object inserted
 if($category->delete()){
-    echo json_encode(
-       // array('message'=> $category->id)
-       $category->id 
+    //create an array and assign the cateogry info to it
+    $category_arr = array(
+        'id' => $category->id, 
     );
+
+    //convert this array to JSON
+    print_r(json_encode($category_arr)); 
 } else{
     echo json_encode(
         array('message'=> 'No Category Found')
