@@ -12,7 +12,7 @@ switch($method){
     case "GET":
         //note: This one must come first. If you put it last, the third case fires because the 
         //authorID is set. 
-        if(isset($_GET['authorID']) and isset($_GET['categoryID'])) 
+        if(isset($_GET['authorId']) and isset($_GET['categoryId'])) 
         {include 'read_author_category.php'; 
         break;}
 
@@ -21,12 +21,12 @@ switch($method){
         break;}
 
 
-        if(isset($_GET['authorID'])){
+        if(isset($_GET['authorId'])){
         include 'read_all_author.php';
         break;
         }
 
-        if(isset($_GET['categoryID'])) 
+        if(isset($_GET['categoryId'])) 
         {include 'read_all_category.php';
         break;}
 

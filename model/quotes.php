@@ -198,7 +198,13 @@
 
     public function read_all_author(){
         //create a query
-        $query = 'SELECT * FROM `quotes` WHERE authorID =?';
+        $query =  $query = 'SELECT quotes.id, quotes.quote, authors.author, categories.category  
+        FROM `quotes` 
+        JOIN authors
+        ON quotes.authorID = authors.id
+        JOIN categories
+        ON quotes.categoryID = categories.id
+        WHERE quotes.authorID =?';
         
         //prepare statment
         $stmt = $this->conn->prepare($query); 

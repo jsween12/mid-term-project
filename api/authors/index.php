@@ -10,16 +10,16 @@ if ($method === 'OPTIONS') {
 
 switch($method){
 
-    case "GET":
+    case 'GET':
         if(isset($_GET['id'])) include 'return_single.php'; 
         else { include 'readAll.php'; }
         break; 
 
-    case "POST":
+    case 'POST':
         include 'create.php';
         break; 
 
-    case "PUT": 
+    case 'PUT': 
         include 'update.php';
         break; 
 
