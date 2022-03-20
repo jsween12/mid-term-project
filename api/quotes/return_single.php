@@ -31,8 +31,8 @@ if($quote->return_single()){
     $quote_arr = array(
         'id' => $quote->id, 
         'quote' => $quote->quote, 
-        'authorID'=> $quote->authorID,
-        'categoryID'=> $quote->categoryID
+        'author'=> $quote->author,
+        'category'=> $quote->category
     );
 
     //convert this array to JSON

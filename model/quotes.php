@@ -11,6 +11,8 @@
         public $quote;
         public $authorID; 
         public $categoryID;  
+        public $author; 
+        public $category; 
 
         //constructor with database
 
