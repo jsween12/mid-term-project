@@ -246,7 +246,13 @@
 
     public function read_author_category(){
         //create a query
-        $query = 'SELECT * FROM `quotes` WHERE authorID=? AND categoryID =?';
+        $query =  $query = 'SELECT quotes.id, quotes.quote, authors.author, categories.category  
+        FROM `quotes` 
+        JOIN authors
+        ON quotes.authorID = authors.id
+        JOIN categories
+        ON quotes.categoryID = categories.id
+        WHERE quotes.categoryID =? AND quotes.authorID =?';
         
         //prepare statment
         $stmt = $this->conn->prepare($query); 
