@@ -30,7 +30,7 @@ $num = $result->rowCount();
 if($num >0){
     //post array
     $category_arr = array(); 
-    $category_arr['data'] = array(); 
+    $category_arr = array(); 
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row); 
@@ -41,7 +41,7 @@ if($num >0){
         ); 
 
         //push author_item array to 'data'array. It'll loop through each entry and assign the id and category
-        array_push($category_arr['data'], $category_item); 
+        array_push($category_arr, $category_item); 
     }
 
     //turn into JSON and output

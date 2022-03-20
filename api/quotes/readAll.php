@@ -30,7 +30,7 @@ $num = $result->rowCount();
 if($num >0){
     //post array
     $quotes_arr = array(); 
-    $quotes_arr['data'] = array(); 
+    $quotes_arr = array(); 
 
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row); 
@@ -44,7 +44,7 @@ if($num >0){
         ); 
 
         //push quotes_item array to 'data'array. It'll loop through each entry and assign the id and quote, authorID, categoryID
-        array_push($quotes_arr['data'], $quotes_item); 
+        array_push($quotes_arr, $quotes_item); 
     }
 
     //turn into JSON and output
