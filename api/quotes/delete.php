@@ -30,10 +30,18 @@ $quote->id = $data->id;
 
 //now that the object has the info, we can call delete() and it'll send the mySQL to the database with the proper info from our object inserted
 if($quote->delete()){
-    echo json_encode(
-    // array('message'=> $author->id)
-    $quote->id 
+    //create an array and assign the quote info to it
+    $quote_arr = array(
+        'id' => $quote->id
     );
+
+    //convert this array to JSON
+    print_r(json_encode($quote_arr)); 
+    
+
+
+
+
 } else{
     echo json_encode(
         array('message'=> 'No Quote Found')
