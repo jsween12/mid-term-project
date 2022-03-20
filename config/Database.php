@@ -29,7 +29,8 @@ public function connect() {
     
     // set the PDO error mode to exception
     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo( "Connected successfully");
+    //this line messes up the json output so I'm commenting it out
+    //echo( "Connected successfully");
     }
     catch(PDOException $e)
     {
