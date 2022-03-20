@@ -69,7 +69,7 @@
 
     public function create() {
         //create query
-        $query = 'INSERT INTO ' . $this->table . '(`author`) VALUES (":author")';
+        $query = 'INSERT INTO ' . $this->table . '(`author`) VALUES (:author)';
 
         //prepare statement 
         $stmt = $this->conn->prepare($query);
