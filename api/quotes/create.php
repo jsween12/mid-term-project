@@ -41,8 +41,8 @@ if($quote->create()){
     $quote_arr = array(
         'id' => $quote->id, 
         'quote' => $quote->quote, 
-        'author'=> $quote->author,
-        'category'=> $quote->category
+        'authorId'=> $quote->authorID,
+        'categoryId'=> $quote->categoryID
     );
 
     //convert this array to JSON
