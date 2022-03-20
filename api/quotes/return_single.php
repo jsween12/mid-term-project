@@ -19,7 +19,7 @@ $quote = new quote($db);
 
 //get id and assign it to your author object
 
-$quote->id = isset($_GET['Id']) ? $_GET['Id'] : die();
+$quote->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 
 //call quote read method to get the author info. Note that if comes back false, then it prints 'quote not found' below
