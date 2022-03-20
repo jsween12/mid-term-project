@@ -16,7 +16,7 @@ switch($method){
         {include 'read_author_category.php'; 
         break;}
 
-        if(isset($_GET['id'])) 
+        if(isset($_GET['Id'])) 
         {include 'return_single.php'; 
         break;}
 
